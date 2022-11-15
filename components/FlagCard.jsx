@@ -3,13 +3,13 @@ import styled from "styled-components";
 const Card = styled.div`
   display: flex;
   flex-direction: column;
-
   width: 288px;
+  height: 395px;
   border-radius: 0.5rem;
   overflow: hidden;
   box-shadow: 0 1px 3px 0 #9ca3af;
   & img {
-    height: 100%;
+    height: 192px;
     flex-grow: 1;
     box-shadow: inherit;
   }

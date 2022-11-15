@@ -18,6 +18,10 @@ const Container = styled.div`
       background-color: rgb(43, 57, 69);
       box-shadow: none;
     }
+    & Main section .img button {
+      background-color: rgb(43, 57, 69);
+      color: white;
+    }
   }
 `;
 
@@ -51,14 +55,14 @@ function Layout() {
 
   return (
     <Container className={isDark ? "dark" : ""} >
-      <Header dark={isDark ? true : false}>
+      <Header dark={isDark}>
         <div className="logo">Where in the world?</div>
         <div className="dark-mode" onClick={handleTheme}>
           Dark Mode
         </div>
       </Header>
 
-      <Main dark={isDark ? true : false}>
+      <Main dark={isDark}>
         <Outlet />
       </Main>
     </Container>
