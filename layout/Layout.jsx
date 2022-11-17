@@ -22,6 +22,10 @@ const Container = styled.div`
       background-color: rgb(43, 57, 69);
       color: white;
     }
+    & Main section div div .borders .border {
+      background-color:rgb(43, 57, 69) ;
+      color: white;
+    }
   }
 `;
 
