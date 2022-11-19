@@ -7,6 +7,7 @@ const Container = styled.section`
   display: flex;
   justify-content: space-between;
   & .img {
+    /* flex-grow:1; */
     display: flex;
     flex-direction: column;
 
@@ -25,8 +26,7 @@ const Container = styled.section`
       border-radius: 0.5rem;
     }
     & img {
-      height: 600px;
-      flex-grow: 1;
+      width: 750px;
     }
   }
 `;
@@ -73,13 +73,14 @@ const Key = styled.span`
 function Country() {
   const { name } = useParams();
   const [param, setParam] = useState({});
-  const [currencies, setCurrencies] = useState([]);
 
   useEffect(() => {
     axios
       .get(`https://restcountries.com/v3.1/name/${name}`)
       .then((data) => setParam(...data.data));
   }, []);
+
+  console.log(param);
 
   return (
     <Container>
@@ -93,27 +94,27 @@ function Country() {
         <CountryName>{param.name?.common}</CountryName>
         <Info>
           <div className="left-side-info">
-            <Entry>
+            <Entry key="1">
               <Key>Native Name: </Key>
               <span>{param?.name?.official}</span>
             </Entry>
-            <Entry>
+            <Entry key="2">
               <Key>Population: </Key>
               <span>{param.population}</span>
             </Entry>
-            <Entry>
+            <Entry key="3">
               <Key>Region: </Key>
               <span>{param.region}</span>
             </Entry>
-            <Entry>
+            <Entry key="4">
               <Key>Sub Region: </Key>
               <span>{param.subregion}</span>
             </Entry>
-            <Entry>
+            <Entry key="5">
               <Key>Capital: </Key>
               <span>{param.capital}</span>
             </Entry>
-            <Entry>
+            <Entry key="6">
               <Key>Border: </Key>
               <div className="borders">
                 {param.borders ? (
@@ -127,16 +128,26 @@ function Country() {
             </Entry>
           </div>
           <div className="right-side-info">
-            <Entry>
+            <Entry key="7">
               <Key>Top Level Domain: </Key>
             </Entry>
-            <Entry>
+            <Entry key="8">
               <Key>Currencies: </Key>
-              {/* <span>{param.currencies.[]?.name}</span> */}
+              {param.currencies &&
+                Object.values(param.currencies)?.map((curr, index) => (
+                  <span key={index}>{curr.name}</span>
+                ))}
             </Entry>
-            <Entry>
+            <Entry key="9">
               <Key>Language: </Key>
-              <span>native name</span>
+              {param.languages &&
+                Object.values(param.languages).map((lang, index, array) =>
+                  index + 1 === array.length ? (
+                    <span key={index}>{lang}</span>
+                  ) : (
+                    <span key={index}>{`${lang}, `}</span>
+                  )
+                )}
             </Entry>
           </div>
         </Info>

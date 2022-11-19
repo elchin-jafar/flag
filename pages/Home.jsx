@@ -19,37 +19,51 @@ const Main = styled.main`
 
 function Home() {
   const [allData, setAllData] = useState([]);
+  const [filteredData, setFilteredData] = useState(allData);
   useEffect(() => {
     axios
       .get("https://restcountries.com/v3.1/all")
       .then((data) => setAllData(data.data));
   }, []);
-  console.log(allData);
 
   function Change(data) {
-    const filteredData = allData.filter((item) => data == item.name.common);
-    console.log(filteredData);
-    return filteredData;
+    if (data == "") {
+      setFilteredData(allData);
+    }
+    setFilteredData(
+      allData.filter((value) =>
+        value.name?.common.toLowerCase().includes(data?.toLowerCase())
+      )
+    );
   }
-  useEffect(() => {
-    setAllData(Change())
-  }, []);
-
+  console.log(filteredData);
   return (
     <>
       <Search onChange={Change} />
       <Main>
-        {allData?.map((country, index) => (
-          <Link key={index} to={`/country/${country.name.common}`}>
-            <FlagCard
-              name={country.name.common}
-              population={country.population}
-              region={country.region}
-              capital={country.capital}
-              img={`${country.flags.png}`}
-            />
-          </Link>
-        ))}
+        {filteredData.length == 0
+          ? allData.map((country, index) => (
+              <Link key={index} to={`/country/${country.name.common}`}>
+                <FlagCard
+                  name={country.name.common}
+                  population={country.population}
+                  region={country.region}
+                  capital={country.capital}
+                  img={`${country.flags.png}`}
+                />
+              </Link>
+            ))
+          : filteredData.map((country, index) => (
+              <Link key={index} to={`/country/${country.name.common}`}>
+                <FlagCard
+                  name={country.name.common}
+                  population={country.population}
+                  region={country.region}
+                  capital={country.capital}
+                  img={`${country.flags.png}`}
+                />
+              </Link>
+            ))}
       </Main>
     </>
   );
