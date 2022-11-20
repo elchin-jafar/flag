@@ -1,8 +1,6 @@
 import styled from "styled-components";
-import SearchIcon from "@mui/icons-material/Search";
-import React from "react";
 
-const SearchInputs = styled.div`
+export const SearchInputs = styled.div`
   display: flex;
   align-items: center;
   margin-bottom: 15px;
@@ -38,25 +36,4 @@ const SearchInputs = styled.div`
     }
   }
 `;
-
-function Search({ onChange }) {
-  function handleSearch(event) {
-    onChange(event.target.value);
-  }
-
-  return (
-    <SearchInputs>
-      <div className="search-icon">
-        {" "}
-        <SearchIcon />{" "}
-      </div>
-      <input
-        type="text"
-        placeholder="Search for country..."
-        onChange={handleSearch}
-      />
-    </SearchInputs>
-  );
-}
-
-export default Search;
+export const SearchSelect = styled.div``;

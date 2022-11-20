@@ -1,21 +1,10 @@
 import React, { useState, useEffect } from "react";
-import FlagCard from "../components/FlagCard";
-import styled from "styled-components";
+import FlagCard from "../../components/FlagCard/FlagCard";
+import { Main } from "./Styles";
 import axios from "axios";
 import { Link } from "react-router-dom";
-import Search from "../components/Search";
-
-const Main = styled.main`
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  gap: 3rem;
-  & a {
-    text-decoration: inherit;
-    color: inherit;
-    width: 288px;
-  }
-`;
+import Search from "../../components/SearchInput/Search";
+import Filter from "../../components/Filter/Filter";
 
 function Home() {
   const [allData, setAllData] = useState([]);
@@ -26,20 +15,27 @@ function Home() {
       .then((data) => setAllData(data.data));
   }, []);
 
-  function Change(data) {
-    if (data == "") {
-      setFilteredData(allData);
-    }
+  function getCountryByName(data) {
     setFilteredData(
       allData.filter((value) =>
         value.name?.common.toLowerCase().includes(data?.toLowerCase())
       )
     );
   }
+
+  function getCountryByRegion(data) {
+    console.log(data);
+    console.log();
+    setFilteredData(allData.filter((value) => value.region == data));
+  }
+
   console.log(filteredData);
   return (
     <>
-      <Search onChange={Change} />
+      <div className="search-bar">
+        <Search onChange={getCountryByName} />
+        <Filter onChange={getCountryByRegion} />
+      </div>
       <Main>
         {filteredData.length == 0
           ? allData.map((country, index) => (
