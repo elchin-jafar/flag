@@ -36,4 +36,3 @@ export const SearchInputs = styled.div`
     }
   }
 `;
-export const SearchSelect = styled.div``;

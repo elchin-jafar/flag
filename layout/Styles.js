@@ -24,20 +24,33 @@ export const Container = styled.div`
       background-color:rgb(43, 57, 69) ;
       color: white;
     }
+    & Main .search-icon svg {
+      color:black
+    }
   }
 `;
 
 export const Header = styled.header`
   display: flex;
   justify-content: space-between;
+  align-items: center;
   padding: 16px 64px;
   & .logo {
     font-size: 1.5rem;
     font-weight: 600;
   }
   & .dark-mode {
+    display: flex;
     font-weight: 400;
     cursor: pointer;
+    user-select: none;
+    & .icon {
+      transform: scale(0.85);
+    }
+    & svg {
+      transform: rotate(-30deg);
+      margin-right: 5px;
+    }
   }
 `;
 

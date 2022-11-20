@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import FlagCard from "../../components/FlagCard/FlagCard";
-import { Main } from "./Styles";
+import { SearchBar, Main } from "./Styles";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import Search from "../../components/SearchInput/Search";
@@ -12,7 +12,7 @@ function Home() {
   useEffect(() => {
     axios
       .get("https://restcountries.com/v3.1/all")
-      .then((data) => setAllData(data.data));
+      .then((data) => setAllData(data.data))
   }, []);
 
   function getCountryByName(data) {
@@ -24,18 +24,16 @@ function Home() {
   }
 
   function getCountryByRegion(data) {
-    console.log(data);
-    console.log();
     setFilteredData(allData.filter((value) => value.region == data));
   }
 
   console.log(filteredData);
   return (
     <>
-      <div className="search-bar">
+      <SearchBar>
         <Search onChange={getCountryByName} />
         <Filter onChange={getCountryByRegion} />
-      </div>
+      </SearchBar>
       <Main>
         {filteredData.length == 0
           ? allData.map((country, index) => (

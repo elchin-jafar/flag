@@ -1,5 +1,5 @@
 import React from "react";
-import { SearchInputs, SearchSelect } from "./Styles";
+import { SearchInputs } from "./Styles";
 import SearchIcon from "@mui/icons-material/Search";
 
 function Search({ onChange }) {
@@ -20,7 +20,6 @@ function Search({ onChange }) {
           onChange={handleSearch}
         />
       </SearchInputs>
-      <SearchSelect></SearchSelect>
     </>
   );
 }

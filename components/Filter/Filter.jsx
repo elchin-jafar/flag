@@ -6,6 +6,7 @@ function Filter({ onChange }) {
     onChange(regionData);
   }
   return (
+    <div className="selectInput">
     <select onChange={SelectHandler}>
       <option value="">Filter by Region</option>
       <option value="Africa">Africa</option>
@@ -14,6 +15,7 @@ function Filter({ onChange }) {
       <option value="Europe">Europe</option>
       <option value="Oceania">Oceania</option>
     </select>
+    </div>
   );
 }
 
