@@ -15,12 +15,16 @@ export const Container = styled.section`
       padding: 0.75rem 3rem;
       width: 168px;
       text-align: center;
-      text-decoration: none;
+
       line-height: 24px;
       font-size: 16px;
       box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1);
       border: none;
       border-radius: 0.5rem;
+      & svg {
+        transform: translateY(6px);
+        margin-right: 5px;
+      }
     }
     & img {
       width: 750px;
@@ -48,7 +52,7 @@ export const CountryName = styled.div`
   margin-bottom: 1.75rem;
 `;
 
-export const Entry = styled.p`
+export const Entry = styled.div`
   margin: 1rem 0;
   & .borders {
     display: flex;

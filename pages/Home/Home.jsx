@@ -12,7 +12,7 @@ function Home() {
   useEffect(() => {
     axios
       .get("https://restcountries.com/v3.1/all")
-      .then((data) => setAllData(data.data))
+      .then((data) => setAllData(data.data));
   }, []);
 
   function getCountryByName(data) {
@@ -27,7 +27,6 @@ function Home() {
     setFilteredData(allData.filter((value) => value.region == data));
   }
 
-  console.log(filteredData);
   return (
     <>
       <SearchBar>

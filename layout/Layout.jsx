@@ -8,7 +8,6 @@ function Layout() {
   const [isDark, setIsDark] = useState(false);
 
   function handleTheme() {
-    console.log("dark mode btn clicked");
     setIsDark((prevState) => !prevState);
   }
 

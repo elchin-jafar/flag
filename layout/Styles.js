@@ -4,8 +4,11 @@ export const Container = styled.div`
   font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
     Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans, sans-serif,
     "Apple Color Emoji", "Segoe UI Emoji", Segoe UI Symbol, "Noto Color Emoji";
+  height: 100vh;
+  transition: background-color 0.2s;
   &.dark {
     color: white;
+    background-color: rgb(32, 44, 55);
     & Header {
       background-color: rgb(43, 57, 69);
     }
@@ -21,11 +24,11 @@ export const Container = styled.div`
       color: white;
     }
     & Main section div div .borders .border {
-      background-color:rgb(43, 57, 69) ;
+      background-color: rgb(43, 57, 69);
       color: white;
     }
     & Main .search-icon svg {
-      color:black
+      color: black;
     }
   }
 `;
@@ -35,6 +38,7 @@ export const Header = styled.header`
   justify-content: space-between;
   align-items: center;
   padding: 16px 64px;
+
   & .logo {
     font-size: 1.5rem;
     font-weight: 600;
@@ -57,4 +61,5 @@ export const Header = styled.header`
 export const Main = styled.main`
   padding: 0 4rem;
   background-color: rgb(250, 250, 250);
+  transition: background-color 0.2s;
 `;

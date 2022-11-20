@@ -13,6 +13,7 @@ function App() {
             <Route path="" element={<Home />} />
             <Route path="country/:name" element={<Country />} />
           </Route>
+          <Route path="*" element={<>404 not found</>}/>
         </Routes>
       </BrowserRouter>
     </div>
