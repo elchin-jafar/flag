@@ -60,6 +60,9 @@ export const Header = styled.header`
 
 export const Main = styled.main`
   padding: 0 4rem;
+  @media (max-width: 450px) {
+    padding: 0 3rem;
+  }
   background-color: rgb(250, 250, 250);
   transition: background-color 0.2s;
 `;

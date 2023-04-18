@@ -4,6 +4,9 @@ export const Container = styled.section`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  @media (max-width: 450px) {
+    flex-direction: column;
+  }
   & .img {
     display: flex;
     flex-direction: column;
@@ -15,12 +18,14 @@ export const Container = styled.section`
       padding: 0.75rem 3rem;
       width: 168px;
       text-align: center;
-
       line-height: 24px;
       font-size: 16px;
       box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1);
       border: none;
       border-radius: 0.5rem;
+      @media (max-width: 450px) {
+        width: 80vw;
+      }
       & svg {
         transform: translateY(6px);
         margin-right: 5px;
@@ -28,6 +33,9 @@ export const Container = styled.section`
     }
     & img {
       width: 750px;
+      @media (max-width: 450px) {
+        width: 80vw;
+      }
     }
   }
 `;
@@ -38,6 +46,13 @@ export const RightSide = styled.div`
   display: flex;
   flex-direction: column;
   padding-top: 15rem;
+  @media (max-width: 450px) {
+    padding: 15rem 1rem 0;
+    & .borders {
+      display: flex;
+      flex-wrap: wrap;
+    }
+  }
 `;
 
 export const Info = styled.div`

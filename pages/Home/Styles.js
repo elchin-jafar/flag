@@ -4,6 +4,9 @@ export const SearchBar = styled.div`
   display: flex;
   justify-content: space-between;
   padding: 2rem 0;
+  @media only screen and (max-width: 450px) {
+    flex-direction: column;
+  }
   & select {
     box-shadow: 10px 10px 15px -3px rgb(0 0 0 / 0.1);
     height: 60px;
